@@ -69,7 +69,6 @@ console.log(stack.pop()); //apple
 
 ## Useful links and credits
 
-- [https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Applications_of_stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Applications_of_stacks)
-
+- https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Applications_of_stacks
 
 - [https://developer.mozilla.org/en-US/docs/Glossary/Call_stack](https://developer.mozilla.org/en-US/docs/Glossary/Call_stack)
