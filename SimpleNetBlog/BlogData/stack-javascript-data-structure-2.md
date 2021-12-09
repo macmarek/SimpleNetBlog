@@ -1,5 +1,5 @@
 ﻿
-# Stack JavaScript data structure
+# Stack JavaScript data structure 2
 
 This post describes stack data structure and shows how can it be
   implemented in JavaScript.

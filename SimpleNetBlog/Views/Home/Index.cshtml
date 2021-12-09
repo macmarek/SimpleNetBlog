@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SimpleNetBlog.BusinessLogic.BlogConfig.BlogConfig
+
+@{
     ViewData["Title"] = "Welcome!";
 }
 
@@ -6,7 +8,16 @@
     <h1 class="display-4">Welcome!</h1>
     <p>My name is Marek Czarnecki</p>
 
-    <h2>2021</h2>
-    @Html.ActionLink("Stack Javascript Data Structure", "Index", "Blog", new {fileTitle="stack-javascript-data-structure"})
+    @foreach (var group in Model.Groups)
+    {
+        <h2>@group.Name</h2>
+
+        @foreach (var article in group.Articles){
+            @Html.ActionLink(article.Title, "Index", "Blog", new {urlKey=article.UrlKey})
+        }
+    }
+
+    @*<h2>2021</h2>*@
+    @*@Html.ActionLink("Stack Javascript Data Structure", "Index", "Blog", new {fileTitle="stack-javascript-data-structure"})*@
     @*@Html.RouteLink("Stack Javascript Data Structure", "Index", "Blog", new {fileTitle="stack-javascript-data-structure"})*@
 </div>

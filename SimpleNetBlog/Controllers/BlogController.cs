@@ -1,50 +1,33 @@
-﻿using Markdig;
-using Markdig.Extensions.AutoLinks;
-using Markdig.Prism;
-using Markdig.Renderers.Html;
-using Markdig.Syntax;
-using Markdig.Syntax.Inlines;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SimpleNetBlog.BusinessLogic;
+using SimpleNetBlog.BusinessLogic.BlogConfig;
 
 namespace SimpleNetBlog.Controllers
 {
     public class BlogController : Controller
     {
         private readonly ILogger<BlogController> _logger;
+        private readonly IMarkdownService markdownService;
+        private readonly IBlogConfigService blogConfigService;
 
-        public BlogController(ILogger<BlogController> logger)
+        public BlogController(ILogger<BlogController> logger, IMarkdownService markdownService, IBlogConfigService blogConfigService)
         {
             _logger = logger;
+            this.markdownService = markdownService;
+            this.blogConfigService = blogConfigService;
         }
 
-        public IActionResult Index(string fileTitle)
+        public IActionResult Index(string urlKey)
         {
-            var mdPath = Path.Combine("./BlogData/", fileTitle +".md");
+            var article = this.blogConfigService.GetByUrlKey(urlKey);
+
+
+            var mdPath = Path.Combine("./BlogData/", article.FilePath);
             //var result = Markdown.ToHtml("This is a text with some *emphasis*");
-            string readText = System.IO.File.ReadAllText(mdPath);
-            var pipeline = new MarkdownPipelineBuilder()
-    .UseAutoLinks(new AutoLinkOptions { OpenInNewWindow = true })
-    .UseAdvancedExtensions()
-    .UsePrism()
-    .Build();
-            //var result = Markdown.ToHtml(readText);
-            //var result = Markdown.ToHtml(readText, pipeline);
+            string mdText = System.IO.File.ReadAllText(mdPath);
+            
 
-            MarkdownDocument document = Markdown.Parse(readText, pipeline);
-
-            foreach (LinkInline link in document.Descendants<LinkInline>())
-            {
-                link.GetAttributes().AddPropertyIfNotExist("target", "_blank");
-            }
-
-            foreach (AutolinkInline link in document.Descendants<AutolinkInline>())
-            {
-                link.GetAttributes().AddPropertyIfNotExist("target", "_blank");
-            }
-
-            var result = document.ToHtml(pipeline);
-
-            ViewBag.MDHtml = result;
+            ViewBag.MDHtml = this.markdownService.ConvertToHtml(mdText);
             return View();
         }
     }

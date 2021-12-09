@@ -1,6 +1,12 @@
+using SimpleNetBlog.BusinessLogic;
+using SimpleNetBlog.BusinessLogic.BlogConfig;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IMarkdownService, MarkdownService>();
+builder.Services.AddTransient<IBlogConfigService, BlogConfigService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -12,6 +18,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -25,7 +33,7 @@ app.UseAuthorization();
 //    pattern: "{controller=Blog}/{action=Index}/{fileTitle?}");
 
 app.MapControllerRoute(name: "blog",
-                pattern: "blog/{*fileTitle}",
+                pattern: "blog/{*urlKey}",
                 defaults: new { controller = "Blog", action = "Index" });
 
 app.MapControllerRoute(
