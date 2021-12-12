@@ -1,5 +1,5 @@
 ﻿
-# Stack JavaScript data structure
+# Stack JavaScript data structure 2
 
 This post describes stack data structure and shows how can it be
   implemented in JavaScript.
@@ -13,7 +13,7 @@ Stack is data structure that represents collection of elements, It has two opera
 
 You can visualise a stack data structure as a stack of plates in the kitchen. You can only add (push) or remove (pop) a plate on the top.
 
-![plates image](/images/plates.jpg)
+[plates image here]
 
 Stack is also known as **LIFO (last in, first out)** collection. This means that last item that is added to stack (push) is the first one that will be removed (pop).
 

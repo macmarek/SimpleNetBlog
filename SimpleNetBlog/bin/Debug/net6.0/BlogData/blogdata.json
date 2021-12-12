@@ -1,0 +1,28 @@
+﻿{
+  "BlogName": "allstack.org",
+  "BlogRelativeRootFolder": "./BlogData",
+  "Groups": [
+    {
+      "Name": "2021",
+      "Articles": [
+        {
+          "Title": "Stack JavaScript data structure",
+          "FilePath": "stack-javascript-data-structure.md",
+          "UrlKey": "stack-javascript-data-structure",
+          "PublishDate": "2021-12-09T00:00:00"
+        }
+      ]
+    },
+    {
+      "Name": "2022",
+      "Articles": [
+        {
+          "Title": "Stack JavaScript data structure",
+          "FilePath": "stack-javascript-data-structure-2.md",
+          "UrlKey": "stack-javascript-data-structure-2",
+          "PublishDate": "2022-12-09T00:00:00"
+        }
+      ]
+    }
+  ]
+}

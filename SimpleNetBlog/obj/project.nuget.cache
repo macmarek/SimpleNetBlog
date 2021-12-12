@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "AvHintHPIk0Kl4gti2pZ4Kdd9tBKP5QgJG1HNx3lUpBjQwDHrKEwtJImEPRurPb+ASUOR+BNX071Nod6/HmwPg==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\SimpleNetBlog\\SimpleNetBlog\\SimpleNetBlog.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marek\\.nuget\\packages\\markdig\\0.26.0\\markdig.0.26.0.nupkg.sha512",
+    "C:\\Users\\marek\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
+    "C:\\Users\\marek\\.nuget\\packages\\webstoating.markdig.prism\\1.0.0\\webstoating.markdig.prism.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
