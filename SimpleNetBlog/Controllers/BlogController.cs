@@ -20,14 +20,17 @@ namespace SimpleNetBlog.Controllers
         public IActionResult Index(string urlKey)
         {
             var article = this.blogConfigService.GetByUrlKey(urlKey);
-
+            var blogConfig = this.blogConfigService.GetConfig();
 
             var mdPath = Path.Combine("./BlogData/", article.FilePath);
             //var result = Markdown.ToHtml("This is a text with some *emphasis*");
             string mdText = System.IO.File.ReadAllText(mdPath);
-            
+
 
             ViewBag.MDHtml = this.markdownService.ConvertToHtml(mdText);
+            ViewBag.BlogName = blogConfig.BlogName;
+            ViewBag.ArticleTitle = article.Title;
+
             return View();
         }
     }

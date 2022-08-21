@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Html
 @{
-    ViewData["Title"] = "Blog Article";
+    ViewData["Title"] = ViewBag.ArticleTitle;
+    ViewData["SubTitle"] = ViewBag.BlogName;
 }
 
 <div>
@@ -9,6 +10,6 @@
 
 @section scripts {
 
-    <script src="~/js/prism.js" asp-append-version="true"></script>
+<script src="~/js/prism.js" asp-append-version="true"></script>
 
 }
